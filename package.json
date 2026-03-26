@@ -14,13 +14,13 @@
     "test:coverage": "vitest run --coverage"
   },
   "devDependencies": {
-    "vite": "latest",
-    "gh-pages": "latest",
-    "vitest": "latest",
-    "@vitest/coverage-v8": "latest",
-    "jsdom": "latest",
     "@testing-library/dom": "latest",
+    "@testing-library/jest-dom": "latest",
     "@testing-library/user-event": "latest",
-    "@testing-library/jest-dom": "latest"
+    "@vitest/coverage-v8": "latest",
+    "gh-pages": "^6.3.0",
+    "jsdom": "latest",
+    "vite": "latest",
+    "vitest": "latest"
   }
 }
