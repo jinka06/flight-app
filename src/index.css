@@ -1,0 +1,154 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(180deg, #eef6ff, #ffffff);
+    font-family: 'Inter', sans-serif;
+    color: #0f172a;
+}
+
+.welcome-page {
+    text-align: center;
+    padding: 40px 20px;
+    animation: fadeIn 0.8s ease;
+}
+
+#welcome-logo {
+    width: 160px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+}
+
+.welcome-btn {
+    background: #0b84ff;
+    color: white;
+    padding: 14px 26px;
+    border-radius: 12px;
+    border: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.welcome-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(11, 132, 255, 0.25);
+}
+
+.flying-info {
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 20px;
+    display: grid;
+    gap: 18px;
+    background: white;
+    border-radius: 14px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+    animation: slideUp 0.7s ease;
+}
+
+.flying-info label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #475569;
+}
+
+.flying-info input {
+    padding: 12px;
+    border: 1px solid #d1d9e1;
+    border-radius: 10px;
+    font-size: 1rem;
+}
+
+.submit-btn {
+    padding: 14px 22px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.submit-btn:hover {
+    background: #1e4fc9;
+}
+
+.err-txt {
+    color: #b30000;
+    margin-top: 10px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.result-box {
+    background: white;
+    border-radius: 14px;
+    padding: 16px;
+    margin: 20px auto;
+    width: 85%;
+    max-width: 650px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+
+.result-box:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.16);
+}
+
+.result-title {
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: #2b4f76;
+    font-size: 1.1rem;
+}
+
+.result-content {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+#found-start-date,
+#found-end-date,
+#found-trip,
+#found-activities {
+    display: block;
+    padding: 12px;
+    margin-top: 5px;
+    font-weight: 500;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+    .flying-info {
+        margin: 15px;
+        padding: 16px;
+    }
+
+    .info-resp {
+        margin: 15px;
+        padding: 16px;
+    }
+    
+button, input {
+    transition: 0.25s ease;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+}
