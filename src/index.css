@@ -6,6 +6,7 @@ html, body {
     color: #0f172a;
 }
 
+/* ─── Welcome ──────────────────────────────────────────────────────────────── */
 .welcome-page {
     text-align: center;
     padding: 40px 20px;
@@ -34,6 +35,7 @@ html, body {
     box-shadow: 0 8px 20px rgba(11, 132, 255, 0.25);
 }
 
+/* ─── Form ─────────────────────────────────────────────────────────────────── */
 .flying-info {
     max-width: 600px;
     margin: 30px auto;
@@ -74,11 +76,23 @@ html, body {
     background: #1e4fc9;
 }
 
+.submit-btn:disabled {
+    background: #93b4f5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* ─── Error ────────────────────────────────────────────────────────────────── */
 .err-txt {
     color: #b30000;
     margin-top: 10px;
     text-align: center;
     font-weight: 600;
+}
+
+/* ─── Results section ──────────────────────────────────────────────────────── */
+.results-section {
+    animation: slideUp 0.5s ease;
 }
 
 .result-box {
@@ -90,9 +104,7 @@ html, body {
     max-width: 650px;
     box-shadow: 0 4px 14px rgba(0,0,0,0.12);
     transition: all 0.3s ease;
-    z-index: 10;
 }
-
 
 .result-box:hover {
     transform: translateY(-4px);
@@ -109,46 +121,91 @@ html, body {
 .result-content {
     font-size: 1rem;
     line-height: 1.5;
-}
-
-#found-start-date,
-#found-end-date,
-#found-trip,
-#found-activities {
-    display: block;
     padding: 12px;
     margin-top: 5px;
     font-weight: 500;
 }
 
-/* Animations */
+/* ─── Activities (AI response) ─────────────────────────────────────────────── */
+.activities-content {
+    font-weight: 400;
+    color: #1e293b;
+    line-height: 1.8;
+    white-space: pre-line;   /* preserves line breaks from the AI response */
+}
+
+.activities-content ul,
+.activities-content ol {
+    padding-left: 1.4rem;
+    margin: 0.5rem 0;
+}
+
+.activities-content li {
+    margin-bottom: 0.5rem;
+}
+
+.activities-content strong {
+    color: #1d4ed8;
+}
+
+/* Loading state */
+.activities-content.loading {
+    color: #64748b;
+    font-style: italic;
+}
+
+/* ─── Reset button ─────────────────────────────────────────────────────────── */
+.reset-container {
+    text-align: center;
+    margin: 10px auto 40px;
+}
+
+.reset-btn {
+    background: transparent;
+    color: #2563eb;
+    border: 2px solid #2563eb;
+    padding: 12px 28px;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.reset-btn:hover {
+    background: #2563eb;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(37, 99, 235, 0.25);
+}
+
+/* ─── Animations ───────────────────────────────────────────────────────────── */
 @keyframes fadeIn {
     from { opacity: 0; }
-    to { opacity: 1; }
+    to   { opacity: 1; }
 }
 
 @keyframes slideUp {
     from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    to   { opacity: 1; transform: translateY(0); }
 }
 
-/* Mobile */
+/* ─── Mobile ───────────────────────────────────────────────────────────────── */
 @media (max-width: 640px) {
     .flying-info {
         margin: 15px;
         padding: 16px;
     }
 
-    .info-resp {
-        margin: 15px;
-        padding: 16px;
+    .result-box {
+        width: 90%;
     }
-    
-button, input {
-    transition: 0.25s ease;
-}
 
-button:hover {
-    transform: scale(1.05);
-}
+    button, input {
+        transition: 0.25s ease;
+    }
+
+    button:hover {
+        transform: scale(1.05);
+    }
 }
