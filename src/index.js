@@ -33,11 +33,11 @@ welcomeBtn.addEventListener("click", () => {
 // ─── Reset / New Search ───────────────────────────────────────────────────────
 resetBtn.addEventListener("click", () => {
   form.reset()
-  errText.textContent         = ""
-  foundTrip.textContent       = ""
-  foundStartDate.textContent  = ""
-  foundEndDate.textContent    = ""
-  foundActivities.innerHTML   = ""
+  errText.textContent = ""
+  foundTrip.textContent = ""
+  foundStartDate.textContent = ""
+  foundEndDate.textContent = ""
+  foundActivities.innerHTML = ""
   resultsSection.style.display = "none"
   // Scroll back up to the form smoothly
   form.scrollIntoView({ behavior: "smooth" })
@@ -92,16 +92,14 @@ form.addEventListener("submit", async (e) => {
 // ─── Format AI response: convert markdown-style bullets to HTML ───────────────
 function formatActivities(text) {
   return text
-    // Bold: **text** → <strong>text</strong>
+    .replace(/^###\s+(.+)$/gm, "<strong>$1</strong>")
     .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
-    // Bullet lines starting with - or • or numbers like 1.
     .replace(/^[-•]\s+(.+)$/gm, "<li>$1</li>")
     .replace(/^\d+\.\s+(.+)$/gm, "<li>$1</li>")
-    // Wrap consecutive <li> items in a <ul>
     .replace(/(<li>.*<\/li>)/gs, "<ul>$1</ul>")
-    // Remaining newlines become line breaks
-    .replace(/\n{2,}/g, "<br><br>")
-    .replace(/\n/g, "<br>")
+    // Only convert double newlines to a single break, ignore single newlines
+    .replace(/\n{2,}/g, "<br>")
+    .replace(/\n/g, " ")
 }
 
 // ─── Agent loop ───────────────────────────────────────────────────────────────
